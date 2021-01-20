@@ -65,20 +65,16 @@ function onLocationError(e) {
 }
 map.on('locationerror', onLocationError); // In case of location error
 
-// var helloPopup = L.popup().setContent('Hello World!');
-var stateChangingButton = L.easyButton({
+// Easy button: zoom to your location
+var locateMe = L.easyButton({
     states: [{
-            stateName: 'zoom-to-location',// name the state
-            icon:      'w3-xlarge w3-spin fa fa-crosshairs',        // and define its properties
-            title:     'zoom to your location',// like its title
-            onClick: function(btn, map) { // and its callback
+            icon: 'w3-xlarge w3-spin fa fa-crosshairs',
+            onClick: function(btn, map) {
                 map.locate({setView: true, maxZoom: 16});
-                // map.setView([46.25,-121.8],10);
-                // btn.state('zoom-to-school');// change state on click!
             }
     }]
 });
 
-stateChangingButton.addTo(map);
+locateMe.addTo(map);
 
 // map.locate({setView: true, maxZoom: 16}); //This zooms in to our location. It comes after the marker functions
